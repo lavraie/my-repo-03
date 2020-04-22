@@ -1,6 +1,5 @@
 <p id="p1">
-    Premier essai
-    2
+    
 </p>
 
 <script>
@@ -10,7 +9,7 @@
   })
   .then((data) => {
     console.log(data);
-    document.getElementById("p1").textContent = "coucou";
+    document.getElementById("p1").textContent = JSON.parse(data);
   });
 }
 
