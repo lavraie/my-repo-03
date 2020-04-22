@@ -4,11 +4,12 @@
 </p>
 
 <script>
-    fetch('https://api.wheretheiss.at/v1/satellites/25544')
+   async function getData(){ fetch('https://api.wheretheiss.at/v1/satellites/25544')
   .then((response) => {
     return response.json();
   })
   .then((data) => {
     console.log(data);
   });
+}
 </script>
