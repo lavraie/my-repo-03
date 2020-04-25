@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<title>Waiting for Magical Unicorns</title>
+<progress id=p></progress>
+<script>
+  var progressBar = document.getElementById("p"),
+      client = new XMLHttpRequest()
+  client.open("GET", "https://xhr.spec.whatwg.org/#the-responsetext-attribute")
+  client.onprogress = function(pe) {
+    if(pe.lengthComputable) {
+      progressBar.max = pe.total;
+      progressBar.value = pe.loaded
+    }
+  }
+  client.onloadend = function(pe) {
+    progressBar.value = pe.loaded
+  }
+  client.send()
+</script>
+
+<label for="file">Downloading progress:</label>
+<progress id="file" value="45" max="100"> 32% </progress>
