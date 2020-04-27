@@ -15,3 +15,31 @@
 
 getData();
 </script>
+
+
+async function getData(){fetch('https://api.covid19api.com/summary')
+.then((response) => response.json())
+.then((data) => {
+var coun = [];
+var coun = data.Countries;
+
+var marvelHeroes =  coun.filter(obj => {
+return  (obj.NewDeaths === 0 && obj.TotalConfirmed > 0)});
+console.log('marvel ' + marvelHeroes);
+  console.log(data);
+  var result2 = marvelHeroes.map(({Country, CountryCode}) => ({Country, CountryCode}));
+  ///* var result = data[5].Country */;
+  //var result =  JSON.parse(data).data.filter(function(hero) {
+    //return hero.Country === 'Argentina';
+  //});
+/* document.getElementById("p2").textContent = JSON.stringify(data.Countries) */; 
+/* var coun = data.Countries[6] */;
+  console.log(coun);
+  
+  document.getElementById("p2").textContent = coun;  
+  document.getElementById("p1").textContent = 'marvel' + JSON.stringify(result2);  
+
+})
+
+}
+getData();
