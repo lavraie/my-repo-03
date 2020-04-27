@@ -1,1 +1,17 @@
+<p id="p1">
+    
+</p>
 
+<script>
+   async function getData(){ fetch('https://api.wheretheiss.at/v1/satellites/25544')
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+    console.log(data);
+    document.getElementById("p1").textContent = JSON.stringify(data);
+  });
+}
+
+getData();
+</script>
