@@ -1,0 +1,133 @@
+<p id="p1">
+    
+</p>
+
+
+async function getData(){ fetch('https://restcountries.eu/rest/v2/all')
+  .then((response) => {
+    return response.json();
+    
+      })
+      .then((data) => {
+      //var result = data.filter((x)=>x.population >50000000);
+    //var result = data.filter(x=> { return (x.callingCodes > 31 && x.population > 11000000)});
+    //var result1 = data.name + JSON.stringify(result);
+    var result1 = data.name + JSON.stringify(data, ['capital', 'demonym', 'population']);
+    
+    console.log(data);
+        //console.log(Object.keys(result.capital));
+    
+       // console.log(result1);
+    
+       // document.getElementById("p1").textContent = JSON.stringify(result, ['nativeName', 'acronym']);
+        document.getElementById("p1").textContent = JSON.stringify(result1);
+    
+      });
+}
+
+getData();
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title></title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <script
+    type="text/javascript"
+    src="/js/lib/dummy.js"
+    
+  ></script>
+
+    <link rel="stylesheet" type="text/css" href="/css/result-light.css">
+
+
+  <style id="compiled-css" type="text/css">
+      
+  </style>
+
+</head>
+<body>
+    <p id="p1">
+    
+</p>
+
+
+  <!-- TODO: Missing CoffeeScript 2 -->
+
+  <script type="text/javascript">//<![CDATA[
+
+
+async function getData(){ fetch('https://restcountries.eu/rest/v2/regionalbloc/eu')
+  .then((response) => {
+    return response.json();
+
+      })
+      .then((data) => {
+      var result = data.filter((x)=>x.population >50000000);
+    var result = data.filter(x=> { return (x.callingCodes > 31 && x.population > 11000000)});
+    var result1 = data.name + JSON.stringify(result);
+    var result1 = data.name + JSON.stringify(result, ['capital', 'demonym', 'population']);
+    
+    console.log(data);
+        console.log(data);
+
+        console.log(result1);
+    
+    document.getElementById("p1").textContent = JSON.stringify(result, ['nativeName', 'acronym']);
+        document.getElementById("p1").textContent = JSON.stringify(result1);
+    
+      });
+}
+
+getData();
+
+
+  //]]></script>
+
+  <script>
+    // tell the embed parent frame the height of the content
+    if (window.parent && window.parent.parent){
+      window.parent.parent.postMessage(["resultsFrame", {
+        height: document.body.getBoundingClientRect().height,
+        slug: ""
+      }], "*")
+    }
+
+    // always overwrite window.name, in case users try to set it manually
+    window.name = "result"
+  </script>
+</body>
+</html>
+
+
+<p id="p1">
+    
+</p>
+
+<script>
+   async function getData(){ fetch('https://www.worldpop.org/rest/data/pop',{mode: no-cors})
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+    console.log(data);
+
+        /* console.log(JSON.stringify(data)) */;
+/* var data1 = JSON.stringify(data) */;
+/* var data1 = data1.substring(1) */;
+/* var data1 = data1.slice(0, length-1) */;
+    /* document.getElementById("p1").textContent = data1 */;
+    /* var data2 = JSON.parse(data1) */;
+    /* console.log(data2) */;
+  });
+}
+
+/* getData(); */
+</script>
