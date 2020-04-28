@@ -1,0 +1,28 @@
+<p id="p1">
+    
+</p>
+
+
+async function getData(){ fetch('https://restcountries.eu/rest/v2/all')
+  .then((response) => {
+    return response.json();
+    
+      })
+      .then((data) => {
+      //var result = data.filter((x)=>x.population >50000000);
+    //var result = data.filter(x=> { return (x.callingCodes > 31 && x.population > 11000000)});
+    //var result1 = data.name + JSON.stringify(result);
+    var result1 = data.name + JSON.stringify(data, ['capital', 'demonym', 'population']);
+    
+    console.log(data);
+        //console.log(Object.keys(result.capital));
+    
+       // console.log(result1);
+    
+       // document.getElementById("p1").textContent = JSON.stringify(result, ['nativeName', 'acronym']);
+        document.getElementById("p1").textContent = JSON.stringify(result1);
+    
+      });
+}
+
+getData();
