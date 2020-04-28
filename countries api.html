@@ -1,0 +1,51 @@
+<p id="p1">
+    
+</p>
+
+<p id="p2">
+    
+</p>
+
+
+async function getData(){fetch('https://api.covid19api.com/summary')
+.then((response) => response.json())
+.then((data) => {
+var coun = [];
+var coun = data.Countries;
+
+var marvelHeroes =  coun.filter(obj => {
+return  (obj.NewDeaths === 0 && obj.TotalConfirmed > 0)});
+console.log('marvel ' + marvelHeroes);
+  console.log(data);
+  var result2 = marvelHeroes.map(({Country, TotalConfirmed}) => ({Country, TotalConfirmed}));
+  ///* var result = data[5].Country */;
+  //var result =  JSON.parse(data).data.filter(function(hero) {
+    //return hero.Country === 'Argentina';
+  //});
+/* document.getElementById("p2").textContent = JSON.stringify(data.Countries) */; 
+/* var coun = data.Countries[6] */;
+  console.log(coun);
+  
+  document.getElementById("p2").textContent = coun;  
+  document.getElementById("p1").textContent = 'marvel' + JSON.stringify(result2);  
+
+})
+
+}
+getData();
+
+<p id="p1">
+    
+</p>
+
+<script>
+   
+   fetch('https://www.worldpop.org/rest/data/pop', {
+  mode: 'no-cors'
+ 
+})
+.then((response) => response.json())
+.then((data) => {
+  console.log('Success:', data);
+  })
+</script>
