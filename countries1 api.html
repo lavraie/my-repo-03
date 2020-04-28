@@ -105,3 +105,29 @@ getData();
   </script>
 </body>
 </html>
+
+
+<p id="p1">
+    
+</p>
+
+<script>
+   async function getData(){ fetch('https://www.worldpop.org/rest/data/pop',{mode: no-cors})
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+    console.log(data);
+
+        /* console.log(JSON.stringify(data)) */;
+/* var data1 = JSON.stringify(data) */;
+/* var data1 = data1.substring(1) */;
+/* var data1 = data1.slice(0, length-1) */;
+    /* document.getElementById("p1").textContent = data1 */;
+    /* var data2 = JSON.parse(data1) */;
+    /* console.log(data2) */;
+  });
+}
+
+/* getData(); */
+</script>
