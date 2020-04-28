@@ -1,0 +1,49 @@
+<p id="p1">
+    
+</p>
+
+<p id="p2">
+    
+</p>
+
+
+async function getData(){fetch('https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=demo')
+.then((response) => response.json())
+.then((data) => {
+var coun = [];
+var coun = data['Time Series (5min)'];
+//var marvelHeroes =  data.filter(obj => {
+//return obj });
+
+//var result2 = coun.map(({open, low}) => ({open, low}));
+//var marvelHeroes =  coun.filter(obj => {
+//return  (obj.NewDeaths === 0 && obj.TotalConfirmed > 0)});
+//console.log('marvel ' + marvelHeroes);
+  console.log(data);
+    console.log(coun);
+        /* console.log(typeof coun) */;
+            //console.log(JSON.stringify(Object.values(Object.keys(coun)[52]))[5]);
+            
+            Object.keys(coun).forEach(function (item) {
+	console.log(item); // key
+	console.log(coun[item]); // value
+});
+
+
+  //var data1 = Object.keys(data);
+ // var result2 = marvelHeroes.map(({Country, TotalConfirmed}) => ({Country, TotalConfirmed}));
+  ///* var result = data[5].Country */;
+  //var result =  JSON.parse(data).data.filter(function(hero) {
+    //return hero.Country === 'Argentina';
+  //});
+//document.getElementById("p2").textContent = JSON.stringify(data.Countries); 
+//var coun = data.Countries[6];
+//  console.log(coun);
+  
+ document.getElementById("p2").textContent = JSON.stringify(coun);  
+ // document.getElementById("p1").textContent = 'marvel' + JSON.stringify(result2);  
+
+})
+
+}
+getData();
