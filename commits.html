@@ -7,3 +7,59 @@ fetch('https://api.github.com/repos/javascript-tutorial/en.javascript.info/commi
 
   /* commits => console.log(commits[0].author.login); */
   //);
+
+
+  <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>JSON and AJAX</title>
+  </head>
+  
+
+  <body>
+    <p>This is my web page</p>
+    <header>
+    <h1>
+      JSON and AJAX
+    </h1>
+    <button id="btn">Fetch Info for 3 New Animals</button>
+
+  </header>
+  <div id="animal-info">
+  
+  </div>
+
+
+  </body>
+
+</html>
+
+var animalContainer = document.getElementById("animal-info");
+var btn = document.getElementById("btn");
+
+btn.addEventListener("click", function(){
+var ourRequest = new XMLHttpRequest();
+
+ourRequest.open('GET','https://learnwebcode.github.io/json-example/animals-1.json');
+
+ourRequest.onload = function(){
+/* console.log(ourRequest.responseText) */
+var ourData = JSON.parse(ourRequest.responseText);
+renderHTML(ourData);
+/* console.log(ourData[0]) */
+
+} 
+ourRequest.send();
+})
+
+function renderHTML(data){
+Object.keys(data).forEach(k){ 
+animalContainer.insertAdjacentHTML('beforeend', k );
+};
+renderHTMl();
+}
+
+
+
