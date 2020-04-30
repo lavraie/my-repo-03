@@ -32,3 +32,4 @@ async function getData(){ fetch('https://covidtracking.com/api/v1/us/daily.json'
  }
 
  getData();
+
