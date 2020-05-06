@@ -97,4 +97,99 @@ async function getData() {
     }
 
   
+    
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title></title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <script
+    type="text/javascript"
+    src="/js/lib/dummy.js"
+    
+  ></script>
+
+    <link rel="stylesheet" type="text/css" href="/css/result-light.css">
+
+
+  <style id="compiled-css" type="text/css">
+      
+  </style>
+
+</head>
+<body>
+    <p id="p1">
+    
+</p>
+
+<ol id="ul1">
+
+</ol>
+
+  <!-- TODO: Missing CoffeeScript 2 -->
+
+  <script type="text/javascript">//<![CDATA[
+
+
+async function getData() {
+    fetch('https://datahub.io/core/world-cities/r/world-cities.json')
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        var data2 = data.map(({
+          name
+        }) => ({
+          name
+  
+        }));
+        var data3 = data.filter(function(item) {
+          return item.country == "Belgium" || item.country == "France";
+        });
+        console.log(data3);
+        console.log(typeof data3);
+  
+  
+  
+        data3.reverse().forEach(function(item) {
+  
+          const newElement = document.createElement("li");
+          const eventList = document.getElementById("ul1");
+  
+          newElement.innerHTML = JSON.stringify(item.name + " " + item.country);
+          eventList.appendChild(newElement);
+  
+  
+        });
+      })
+  };
+  
+  getData();
+  
+
+
+  //]]></script>
+
+  <script>
+    // tell the embed parent frame the height of the content
+    if (window.parent && window.parent.parent){
+      window.parent.parent.postMessage(["resultsFrame", {
+        height: document.body.getBoundingClientRect().height,
+        slug: ""
+      }], "*")
+    }
+
+    // always overwrite window.name, in case users try to set it manually
+    window.name = "result"
+  </script>
+</body>
+</html>
+
   
