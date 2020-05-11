@@ -780,6 +780,87 @@ async function getData() {
   ---------------------------------------------------------------------------
 
   
+  <script>
+// store urls to fetch in an array
+const urls = [
+  'https://dog.ceo/api/breeds/list',
+  'https://dog.ceo/api/breeds/image/random',
+ // 'https://restcountries.eu/rest/v2/all',
+  //'https://datahub.io/core/world-cities/r/world-cities.json',
+  //'https://raw.githubusercontent.com/lutangar/cities.json/master/cities.json',
+  //'https://pkgstore.datahub.io/core/world-cities/world-cities_json/data/5b3dd46ad10990bca47b04b4739a02ba/world-cities_json.json'
+];
+
+// use map() to perform a fetch and handle the response for each url
+
+Promise.all(urls.map(url =>
+    fetch(url)
+    .then(parseJSON)
+  ))
+  .then(data => {
+    //console.log(data);
+   // var data1 = data;
+    /* console.log('data1' + JSON.stringify(data1[1]));
+    console.log(data1[1]);
+    console.log(data1[0]); */
+return {data};
+  })
+  .then((data,data1) => {
+    console.log(data);
+    //console.log(data[0]);
+    console.log(data);
+
+    // do something with the data
+  })
   
+function parseJSON(response) {
+  return response.json();
+}
+
+</script>
+
+------------------------------------------------------------------------------
+
+<script>
+// store urls to fetch in an array
+const urls = [
+  'https://dog.ceo/api/breeds/list',
+  'https://dog.ceo/api/breeds/image/random',
+  'https://restcountries.eu/rest/v2/all',
+  //'https://datahub.io/core/world-cities/r/world-cities.json',
+  //'https://raw.githubusercontent.com/lutangar/cities.json/master/cities.json',
+  //'https://pkgstore.datahub.io/core/world-cities/world-cities_json/data/5b3dd46ad10990bca47b04b4739a02ba/world-cities_json.json'
+];
+
+// use map() to perform a fetch and handle the response for each url
+Promise.all(urls.map(url =>
+    fetch(url)
+    .then(parseJSON)
+  ))
+  .then(data => {
+    //console.log(data);
+  const data1 = JSON.parse(JSON.stringify(data));
+  console.log(data1[1]);
+  return  data1;
+    // do something with the data
+  })
+  .then(data1 => {
+    //console.log(data1[0]);
+    console.log(data1);
+    //console.log(data);
+  
+  
+    // do something with the data
+  })
+        
+function parseJSON(response) {
+  return response.json();
+}
+
+</script>
+
+-------------------------------------------------------------------------------
+
+
 
 
